@@ -1,0 +1,253 @@
+% Capítulo 2
+
+\chapter{Breve guía de uso deste patrón \LaTeX{}}
+
+\label{Chapter2} % para referenciar este capítulo en calquera parte deste documento, emprega \ref{Chapter1} 
+
+
+\section{Benvidos e grazas}
+Benvidos a este patrón \LaTeX{} para traballos fin de grao/máster, que pretende facilitar o inicio dos alumnos para escribir o seu traballo en \LaTeX{}.
+
+Se estas escribindo o teu traballo (ou o farás no futuro próximo) que é técnico e ten ecuacións matemáticas, entón facelo en \LaTeX{} é altamente recomendable e ademais, a forma de facelo máis segura e sen preocuparte polo formatado e pola ortotipografía matemática correcta. Estes aspectos, son os que levan moito tempo en procesadores de texto convencionais e, case sempre, non cumpren coas regras ISO establecidas. 
+
+En \LaTeX{} é moi fácil escribir documentos profesionais e moi longos en calquera ordenador sen especiais requirimentos de memoria RAM. Funciona como un linguaxe de marcas, mediante comandos simples, que automaticamente formatan os índices de contidos, marxes, cabeceiras e pés de páxina de xeito consistente e sen esforzo. Unha das principais fortalezas é a gran calidade na ortotipografía das ecuacións matemáticas e a súa rápida escritura en texto.
+
+%----------------------------------------------------------------------------------------
+
+\section{Aprendendo \LaTeX{}}
+
+\LaTeX{} non é un procesador de textos \textsc{wysiwyg} (What You See is What You Get) como pode ser Microsoft Word ou Apple's Pages. Polo contrario, un documento escrito para \LaTeX{} é un ficheiro de texto puro que non contén ningún tipo \emph{formato}. Un dálle a \LaTeX{} as instrucións de como debe formatar o documento final escribindo os comandos dentro do documento, por exemplo, se queres empregar letra itálica  como \emph{texto en itálica}, escribes o comando \verb|\emph{text}| e pos o texto que desexes entre as chaves. Entón \LaTeX{}, cando atope este comando, poñerá ese texto en cursiva. Neste aspecto, \LaTeX{} é moi semellante ao linguaxe HTML.
+
+\subsection{Unha (non tan corta) Introdución a \LaTeX{}}
+
+Se eres un neófito en \LaTeX{}, hai un bó libro -- libre on-line PDF -- chamado, \enquote{La introducción no-tan-corta a \LaTeX{}}. Podes baixar a última versión dende a URL: \url{http://mirrors.ctan.org/info/lshort/spanish/lshort-a4.pdf}
+
+
+É recomendable adicar un pouco de tempo a aprender o básico de \LaTeX{} e crear varios documentos básicos para ter un mínimo adestramento. Podes empregar patróns de distintos tipos de documentos na ena URL: \url{http://www.LaTeXTemplates.com}\\ 
+
+
+\subsection{Símbolos matemáticos comúns para \LaTeX{}}
+Hai multitude de símbolos matemáticos dispoñibles para \LaTeX{} e non é posible lembrarse de todos os comandos para cada un deles. A maioría dos que ti podes empregar, podes consultar os seus comandos nesta URL: \url{http://www.sunilpatel.co.uk/latex-type/latex-math-symbols/}. Nesta páxina hai un listado co símbolo matemático en grande e debaixo del o comando \LaTeX{} correspondente.
+
+%----------------------------------------------------------------------------------------
+
+\section{Empezando a escribir o teu traballo a partir deste patrón}
+
+Se xa estas familiarizado con \LaTeX{}, entón deberías explorar a estrutura de cartafoles e ficheiros deste patrón e proceder a colocar a información do teu \emph{TRABALLO TFG/TFM} nos bloques do ficheiro \file{main.tex}. A sección \ref{FillingFile} na páxina \pageref{FillingFile} axudaranche neste proceso. Asegúrate de ler a sección \ref{ThesisConventions} acerca das convencións empregades neste patrón (para traballos de investigación porque para proxectos construtivos ou de outro tipo as conveccións varían e debes consultalas co teu titor).
+
+
+Antes de empezar a utilizar este patrón deberías asegurarte que eres capaz de compilar este documento. Se queres modificar algún aspecto das páxinas iniciais, debes retocar o ficheiro de estilo \file{TFG\_TFM\_EPS.cls} que está dentro do cartafol chamado \file{cls}.
+
+
+%----------------------------------------------------------------------------------------
+
+\section{Que inclúe este patrón?}
+
+\subsection{Cartafoles}
+Este patrón está empaquetado nun ficheiro zip que ao descomprimilo expande unha estrutura de cartafoles e ficheiros. Os nomes dos cartafoles son autoexplicativos: 
+
+\keyword{Apendices} -- Neste cartafol colocarás os apéndices. Cada apéndice debería ter o seu propio ficheiro \file{.tex} separado. Un exemplo e unha patrón base de apéndice van incluídos neste cartafol.
+
+\keyword{Capitulos} -- Neste cartafol é onde debes colocar os ficheiros do teu TFG/TFM. Un traballo pode ter un número variable de capítulos dependendo da natureza do TFG/TFG (investigación, proxecto, etc.). Cada capítulo debería ter o seu propio ficheiro \file{.tex} e, como aproximación para un traballo de investigación, poden ser divididos en:
+\begin{itemize}
+\item Capítulo 1: Introdución ao tema do TFG/TFM 
+\item Capítulo 2: Revisión bibliográfica
+\item Capítulo 3: Modelo teórico/Metodoloxía experimental (laboratorio, etc.)
+\item Capítulo 4: Detalles do experimento 1
+\item Capítulo 5: Detalles do experimento 2
+\item Capítulo 6: Discusión dos resultados experimentais
+\item Capítulo 7: Conclusións e dirección futuras
+\end{itemize}
+Esta estrutura de capítulos é a máis habitual en ciencias experimentais, pero podes adaptala a natureza do teu TFG/TFM (Apéndices, Anexos, etc.).
+
+\keyword{Figuras} -- Este cartafol contén todas as figuras que empregues na memoria e están estruturadas en subcartafoles para cada capítulo ou apéndice para unha mellor organización. A medida que engadas novos subcartafoles inclúe a ruta na instrución \keyword{graphicspath} do \file{main.tex}.
+Os ficheiros das figuras poden ser calquera formato: png, tif, jpg, pdf, etc. pero recomendamos empregar formatos vectoriais para unha mellor calidade, como son o pdf ou eps.
+
+
+\subsection{Ficheiros}
+
+Tamén se inclúen varios ficheiros, a maioría deles son de texto puro, e podes ver o seu contido con calquera editor de texto. Despois da compilación inicial, veras que se crean varios ficheiros auxiliares polo \LaTeX{} ou BibTeX dos cales non precisas preocuparte e podes eliminalos sen efectos secundarios:
+
+\keyword{exemplo.bib} -- Este é un ficheiro importante que contén toda a información bibliográfica e referencias que ti citarás no teu documento TFG/TFM empregando BibTeX. Podes escribilo manualmente os seus items pero hai xestores de citas bibliográficas que che permiten exportar as referencias ao formato BibTeX o cal que simplifica a cantidade de traballo que tes que facer.
+
+\keyword{TFG\_TFM\_EPS.cls} -- Este é un ficheiro importante. Este é o ficheiro de clase que lle di a \LaTeX{} como é formato o documento. 
+
+\keyword{main.pdf} -- Este é o documento final do teu traballo TFG/TFM (en formato PDF) xerado por \LaTeX{} e listo para imprimir.
+
+\keyword{main.tex} -- Este é outro ficheiro importante. Nel lle dicimos a \LaTeX{} que ficheiros se deben incluír na compilación. Contén a estrutura do documento e está comentado para facilitar o entendemento do que está a facer instrución.
+
+Ficheiros que \emph{non} están incluídos, pero que son xerados por \LaTeX{} como ficheiros auxiliares:
+
+\keyword{main.aux} -- ficheiro auxiliar xerado por \LaTeX{}, se se elimina, o \LaTeX{} o rexenera cando volvas a recompilar.
+
+\keyword{main.bbl} -- ficheiro auxiliar xerado por BibTeX. No ficheiro \file{.bib} contén todas as referencias bibliográficas, o ficheiro \file{.bbl} contén as referencias que citas no teu traballo e empregase para construír a sección de bibliografía no TFG/TFM.
+
+O resto de ficheiros auxiliares xerados, pero que non explicaremos (porque carecen de importancia para un usuario normal), son: \keyword{main.blg}, \keyword{main.lof}, \keyword{main.log}, \keyword{main.lot} e \keyword{main.out} 
+
+Desta longa lista, só os ficheiros con extensión \file{.bib}, \file{.cls} and \file{.tex} son os máis importantes. Os ficheiros auxiliares poden ser ignorados ou eliminados posto que \LaTeX{} e BibTeX os rexenerarán cada vez que recompiles o documento principal.
+
+%----------------------------------------------------------------------------------------
+
+\section{Introducindo a información no \file{main.tex}}\label{FillingFile}
+
+Precísase que personalices a información referente ao teu traballo, título, titor, tribunal, etc. Edita co TexStudio (ou calquera outro editor de \LaTeX{}) o \file{main.tex} no bloque 1 etiquetado como \emph{INFORMACIÓN DO TFG/TFM}.
+
+Cando completes isto, salva o ficheiro e recompila \code{main.tex}. Toda esta información aportada se colocará automaticamente nas páxinas da portada, agradecementos, etc.
+
+
+%----------------------------------------------------------------------------------------
+
+\section{Explicación do ficheiro \code{main.tex}}\label{ThesisConventions}
+
+O ficheiro \file{main.tex} contén a estrutura da tese e está documentado mediante comentarios escritos que explican que páxinas, seccións e formato esta creando o código \LaTeX{}. Cada elemento deste documento está dividido en bloques comentados con títulos en letras maiúsculas que indican o contido deste bloques.
+	
+As páxinas co índice de contidos, lista de figuras e táboas están pensadas para que se creen automaticamente. Non obstante, para certos documentos técnicos precisase definir unha lista de abreviacións empregadas e/ou constantes e témolo que facer a man. Non obstante, se non precisas isto no teu traballo, podes comentalas para que non aparezan no teu documento final. 
+	
+A lista de símbolos é dividida segundo os alfabetos romano e grego, mentres que os símbolos das abreviacións está pensado que sexa un listado alfabético (obviamente, isto tes que facelo ti manualmente porque LaTeX{} non o pode facer por ti).
+	
+
+Finalmente, hai o bloque onde os capítulos son incluídos. Descomenta as liñas (eliminar o \code{\%} do código) cando escribes os capítulos. Cada capítulo debería ser escrito no seu ficheiro propio e posto no cartafol \emph{Capítulos}, nomeados como \file{Capítulo1}, \file{Capítulo2},\ldots O mesmo procedemento serve para os apéndices, cada un tería que ir no seu ficheiro propio e colocado no \emph{cartafol de Apéndices}.
+		
+Respecto a bibliografía, o estilo de empregado (opción \option{authoryear} pero podes mudalo) inclúe os autores e o ano entre parénteses. Adicionalmente, inserta unha ligazón á cita o cal facilita moito ao lector atopar a referencia bibliográfica de interese. 
+
+%----------------------------------------------------------------------------------------
+
+\subsection{Formato impreso}
+
+Esta patrón está deseñado para obter un documento para ser impreso a dobre cara como corresponde a maioría deste tipo de documentos. Podemos cambiar isto e imprimir o documento por unha soa cara simplemente descomentando a opción \option{oneside} no comando \code{documentclass} situado ao inicio do ficheiro \file{main.tex}. 
+
+A cabeceira das páxinas pares conteñen o número de páxina na parte esquerda e o título da capítulo na parte dereita. Nas páxinas impares, teñen na parte interior o título da sección e na exterior a numeración das páxinas. 
+ 
+As fontes son asignadas a 11 puntos por defecto e o interliñado do texto é simple, non obstante, podes cambiar estas opcións ao inicio do ficheiro \file{main.tex} cambiando os valores de \option{singlespacing} por \option{onehalfspacing} ou \option{doublespacing}.
+
+
+
+\subsection{Referencias}
+
+O paquete \code{biblatex} empregase para formatar a bibliografía e as referencias insírense no texto coia instrución co comando \parencite{Reference1}. As opcións empregadas no ficheiro \file{main.tex} referéncianse cos nomes de autores e data. Múltiples referencias sepáranse con puntos e comas (e.g. \parencite{Reference2, Reference1}) e as referencias con máis de tres autores só se amosa o primeiro seguido \emph{et al.} indicando que hai máis autores (e.g. \parencite{Reference3}). Esto faise automaticamente. Para ver como usar as referencias, bótalle un ollo ao código fonte do ficheiro \file{Capitulo1.tex} e visita esta URL: \url{https://www.latex-tutorial.com/tutorials/bibtex/}.
+
+A bibliografía organizase alfabeticamente polo primeiro apelido do primeiro autor se elixes o estilo de referencias APA, pero se elixes o estilo IEEE, ordenaranse polo orden no que foron citados no texto. Agora vou citar varios tipos de documentos (artigos, conferencias, webs, libros, etc) para que vexas o resultado na sección de bibliografía (estilo IEEE) \parencite{Reference2, conference, inbook, incollection, book, manual, mastersthesis, misc, phdthesis, proceedings, techreport, unpublished, web}.
+
+
+\subsection{Cadros}
+
+As cadros ou táboas son unha forma importante de visualizar os resultados, abaixo, é un exemplo de táboa que é xerada por este código:
+
+{\small
+\begin{verbatim}
+\begin{table}
+\caption{Os efectos do tratamento X e Y sobre catro grupos de estudo.}
+\label{tab:treatments}
+\centering
+\begin{tabular}{l l l}
+\toprule
+\tabhead{Grupos} & \tabhead{Tratamento X} & \tabhead{Tratamento Y} \\
+\midrule
+1 & 0.2 & 0.8\\
+2 & 0.17 & 0.7\\
+3 & 0.24 & 0.75\\
+4 & 0.68 & 0.3\\
+\bottomrule\\
+\end{tabular}
+\end{table}
+\end{verbatim}
+}
+
+\begin{table}
+\caption{Os efectos do tratamento X e Y sobre catro grupos de estudo.}
+\label{tab:treatments}
+\centering
+\begin{tabular}{l l l}
+\toprule
+\tabhead{Grupos} & \tabhead{Tratamento X} & \tabhead{Tratamento Y} \\
+\midrule
+1 & 0.2 & 0.8\\
+2 & 0.17 & 0.7\\
+3 & 0.24 & 0.75\\
+4 & 0.68 & 0.3\\
+\bottomrule\\
+\end{tabular}
+\end{table}
+
+Podes referencias as táboas co comando \verb|\ref{<label>}| onde a etiqueta (label) defínese dentro do entorno da táboa. Mira \file{Capitulo1.tex} para un exemplo de etiqueta e citación (e.g. Táboa~\ref{tab:treatments}).
+
+Unha ferramenta on-line e interactiva que xera código \LaTeX de táboas podes atopala na URL \url{http://www.tablesgenerator.com/latex_tables}.
+
+\subsection{Figuras}
+
+A maneira de inserir figuras na memoria é empregar o código como o seguinte:
+\begin{verbatim}
+\begin{figure}
+\centering
+\includegraphics[width=5cm]{Figures/Electron}
+\decoRule
+\caption[Un Electrón]{Un electrón (ilustración artistica).}
+\label{fig:Electron}
+\end{figure}
+\end{verbatim}
+Poñendo este código produce a figura do que electróns que estas vendo debaixo. 
+
+\begin{figure}[th]
+\centering
+\includegraphics[width=4cm]{Electron}
+%\decoRule
+\caption[Un Electrón]{Un electrón (ilustración artística).}
+\label{fig:Electron}
+\end{figure}
+
+Algunhas veces as figuras non aparecen situadas no texto onde ti colocas as instrucións anteriores. A situación depende do espazo que queda na páxina para colocar a figura. Se non hai suficiente sitio, \LaTeX{} colocará a ilustración ao principio da seguinte páxina. Non obstante, sempre toma as mellores decisións e ti non tes porque preocuparte por iso (tamén pode forzar a \LaTeX a facer o que ti desexas!).
+
+
+As figuras deben ter pés de figuras (captions) e se precisas referirte a el (como na  Figure~\ref{fig:Electron}). O comando \verb|\caption| contén dúas partes, a primeira, dentro dos corchetes está o título que aparecerá na \emph{Lista de Figuras}, e debe ser breve. Na segunda parte,dentro das chaves deberá conter o texto máis longo e explicativo que aparecerá no pé da figura.
+
+O comando \verb|\decoRule| é opcional e simplemente pon unha barra horizontal para mellorar a estética. Se fas isto para unha imaxe, faino en todo o texto para manter a homoxeneidade.
+
+\LaTeX{} é capaz de ler imaxes en formatos pdf, jpg e png.
+
+\subsection{Escribindo fórmulas}
+
+Se o teu traballo ten contido matemático amplo, ten por seguro que \LaTeX{} é a mellor elección para este tipo de contidos. Non obstante, mira a referencia dada para aprender o mínimo requirido de \LaTeX en \enquote{Unha Introdución no-tan-breve a \LaTeX} ou esta guía matemática \enquote{A Short Math Guide to \LaTeX} que podes descargar dende: \url{ftp://ftp.ams.org/pub/tex/doc/amsmath/short-math-guide.pdf}
+
+
+Hai diferentes símbolos en \LaTeX{} que hai que lembrar, afortunadamente podes atopar os mais comúns en \href{http://ctan.org/pkg/comprehensive}{The Comprehensive \LaTeX~Symbol List}.
+
+Podes escribir unha ecuación, que é automaticamente numerada por \LaTeX{}, con este código:
+\begin{verbatim}
+\begin{equation}
+E = mc^{2},
+\label{eqn:Einstein}
+\end{equation}
+\end{verbatim}
+
+que producirá a ecuación de Einstein máis famosa:
+\begin{equation}
+E = mc^{2},
+\label{eqn:Einstein}
+\end{equation}
+
+Todas as ecuacións que escribes (que non están medio de dous parágrafos) son automaticamente numeradas por \LaTeX{}. Se non queres que se numeren, emprega a forma:
+\begin{verbatim}
+\[ a^{2}=4. \]
+\end{verbatim}
+
+Para as ecuacións ou símbolos matemáticas que van na liñas de texto empregase $a^{2}=4$ os símbolos de dólar: \begin{verbatim} $ a^{2}=4 $ \end{verbatim}
+
+
+
+Nos primeiros intentos de escribir fórmulas en \LaTeX, podes empregar a ferramenta codecogs (\url{http://www.codecogs.com/latex/eqneditor.php}), similar ao editor de ecuacións do Word, que  xera os comandos \LaTeX da fórmula seleccionada.
+
+%----------------------------------------------------------------------------------------
+
+\section{Sección e subseccións}
+
+Debes estruturar o TFG en capítulos, seccións e subseccións. \LaTeX{} constrúe o índice de contidos automaticamente mirando os títulos dentro das chaves dos comandos \verb|\chapter{}|, \verb|\section{}|  e \verb|\subsection{}| que escribes no teu documento.
+
+O índice de contidos só listará tres niveis. Un \verb|chapter{}| é o nivel (0). Un \verb|\section{}| é o nivel  (1) e \verb|\subsection{}| é o nivel (2). No teu documento tamén poderás empregar o comando \verb|subsubsection{}|, o cal será o nivel (3). A profundidade do índice de contidos podes configuralo no ficheiro \file{TFG\_TFM\_EPS.cls}.
+%----------------------------------------------------------------------------------------
+\vspace{5em}
+
+Boa sorte co teu TFG/TFM en \LaTeX!!
+\begin{flushright}
+patróns para distintos tipos de documentos \LaTeX{} libres---\\
+\href{http://www.LaTeXTemplates.com}{LaTeXTemplates.com}
+\end{flushright}

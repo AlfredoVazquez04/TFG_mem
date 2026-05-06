@@ -1,0 +1,421 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Plantilla para os traballos TFG/TFM da EPS de Enxeñaría
+% LaTeX Template
+% Version 1.1 (12/6/18)
+%
+% Autor: Xosé R. Fdez-Vidal
+% Subdirección de Calidade da EPS de Enxeñaría
+%
+% Esta plantilla está baseada no template de:
+% Steve Gunn (http://users.ecs.soton.ac.uk/srg/softwaretools/document/templates/)
+%
+% Template license:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PAQUETES E OUTRAS CONFIGURACIÓNS DO DOCUMENTO
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+11pt, % Tamaño da fonte do documento, opcións: 10pt, 11pt, 12pt
+%oneside, % A dobre cara (alternando os marxes), descomenta para cambiar a un documento por unha cara soamente
+spanish, % Idioma. Opcións: galician, spanish, english, ..
+singlespacing, % Interliñado simple, alternativas: onehalfspacing ou doublespacing
+%draft, % Descomentar para facilitar o modo draft (sen figuras, sen links, ...)
+%nolistspacing, % Seo documento é onehalfspacing ou doublespacing, descomenta esta opción para asignar o espaciado nas listas a simple
+%liststotoc, % Descomenta para engadir a lista de figuras/tablas/etc á táboa de contidos
+%toctotoc, % Descomenta para engadir a táboa principal de contidos á táboa de contidos
+parskip, % Descomenta para engadir un espazo maior entre parágrafos
+%nohyperref, % Descomenta para non cargar o paquete hyperref (ligazóns no documento)
+headsepline, % Descomenta para engadir unha liña debaixo da cabeceira
+chapterinoneline, % Descomenta para poñer o título do capítulo a continuación do número da páxina
+%consistentlayout, % Descomenta para cambiar o layout da declaración, abstract e agradecementos e que tome os valores da clase por defecto
+]{./cls/TFG_TFM_EPS} % O ficheiro da clase que especifica o estilo do documento
+
+
+%----------------------------------------------------------------------------------------
+%	ESTABLECEMENTO DO XESTOR DE BIBLIOGRAFIA, O ESTILO E O FICHEIRO QUE CONTEN AS REFERENCIAS
+%----------------------------------------------------------------------------------------
+
+%\usepackage[backend=bibtex,style=authoryear,natbib=true]{biblatex} % Empregamos bibtex para o manexo da bibliografía con estilo de referencia autor-ano (paracido a norma APA)
+\usepackage[backend=bibtex,style=ieee,natbib=true]{biblatex} %Estilo IEEE
+%tes mais estilos, só tes que buscar as opcións existentes no paquete biblatex na opción style
+
+\addbibresource{bibliografia/exemplo.bib} % Nome do ficheiro bib onde temos a bibliografía
+\usepackage[autostyle=true]{csquotes} % Requirido para xerar as comillas na bibliografía en función do idioma
+
+
+%Ollo:
+\graphicspath{{Figuras/}{Figuras/cap1/}{Figuras/cap2/}{Figuras/cap3/}{./}} % ESPECIFICA OS PATHS ONDE ESTAN AS FIGURAS. Aumenta os paht tanto como capitulos teñas ou cartafoles crees no directorio de bibliografia
+
+
+%----------------------------------------------------------------------------------------
+%	ASIGNACIÓN DE MARXES (esto podes cambialo a teu gusto)
+%----------------------------------------------------------------------------------------
+
+\geometry{
+	paper=a4paper, % Tamaño do folio A4
+	inner=2.5cm, % Marxe interior
+	outer=3.8cm, % Marxe exterior
+	bindingoffset=.5cm, % Binding offset
+	top=1.5cm, % Marxe superior
+	bottom=1.5cm, % Marxe inferior
+	%showframe, % Descomenta para visualizar os cadros que representan o diseño feito da páxina
+    }
+
+
+%----------------------------------------------------------------------------------------
+
+% Definimos algúns comandos para mater o formatodo independente do contido
+\newcommand{\keyword}[1]{\textbf{#1}}
+\newcommand{\tabhead}[1]{\textbf{#1}}
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\file}[1]{\texttt{\bfseries#1}}
+\newcommand{\option}[1]{\texttt{\itshape#1}}
+
+%----------------------------------------------------------------------------------------
+
+
+%----------------------------------------------------------------------------------------
+%	INFORMACIÓN DO TFG/TFM (DÉBEO COMPLETAR CADA ALUMNO ASPIRANTE)
+%----------------------------------------------------------------------------------------
+
+%Datos referentes aos titores do traballo (comenta os que non precises)
+\supervisor{\href{}{Dr. \textsc{Xosé Ramón Fernández Vidal}}} % Nome do titor 1, usado no paxina do título, amosase co comando \supname
+\department{\href{}{Dpto. de Física Aplicada}} % Nome do departamento ao que pertence o titor académico e amósase co comando \deptname
+
+\supervisorseg{Dr. \textsc{Marcos Fernández González}} % Nome do titor 2, usado no paxina do título, amosase co comando \supnameseg
+\departmentseg{\href{}{Dpto. de Electrónica y Computación}} % Nome do departamento ao que pertence o titor académico e amósase co comando \deptnameseg
+
+% \supervisorter{\textsc{Juan Motel}} % Nome do titor 2, usado no paxina do título, amosase co comando \supnameter
+% \departmentter{\href{https://gominolassl.com}{Gominolas SL}} % Nome do departamento ao que pertence o titor académico e amósase co comando \deptnameter
+
+
+
+%Datos referentes ao alumno e ao seu traballo
+\thesistitle{\textsc{Análisis comparativa de los métodos de segmentación 2D y 3D aplicados a imágenes médicas}} % Título do traballo, móstrase co comando \ttitle
+\author{\textsc{Alfredo Vázquez Rodríguez}} % O teu nome, imprimese na páxina do título e na do resume,  amosase co comando \authorname
+\def \dniautor {58.00.24.76 H} %dni do autor
+\keywords{\itshape{Electrónica, Aprendizaxe máquina, (mínimo 5 palabras!!)}} % Keywords do teu traballo, amosanse na páxina do resumo do traballo, aparecen onde poñas o comando \keywordnames
+\def \dataConvocatoria {Julio 2026} %Data da convocatoria. Requirida por normativa!
+
+
+%----------------------------------------------------------------------------------------
+%
+%----------------------------------------------------------------------------------------
+
+%Metadatos no pdf xerado
+\AtBeginDocument{
+\hypersetup{pdftitle=\ttitle} % Mete no pdf o título do teu traballo
+\hypersetup{pdfauthor=\authorname} % Asigna no pdf o teu nome como autor do traballo
+\hypersetup{pdfkeywords=\keywordnames} % Mete no pdf as túas keywords
+}
+
+%Empezamos o documento!!!
+\begin{document}
+
+\nocite{*}
+\frontmatter % Empregamos números romanos para numerar as páxinas pre-contidos no indice (i, ii, iii, iv...)
+
+\pagestyle{plain} % Establecemos o estilo da cabeceira ao defecto ata que no corpo do documento se asigne o estilo definido no preambulo.
+
+%----------------------------------------------------------------------------------------
+%	PORTADA (TAPA)
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage}
+	\newpage
+	\hfill
+	\begin{textblock*}{\paperwidth}(6mm,260mm)
+		\includegraphics[width=12cm]{LogoEPS}
+	\end{textblock*}
+
+	\begin{textblock*}{\paperwidth}(130mm,0mm)
+		\colorbox{azulUSC}{\makebox[0.38\paperwidth][r]{\shortstack[r]{\vspace{77.5mm}}}}
+	\end{textblock*}
+
+
+	\begin{textblock*}{\paperwidth}(0mm,80mm)
+		\colorbox{verdeCTERRA}{\makebox[\paperwidth][c]{\begin{minipage}[c][4cm]{0.9\paperwidth}{\begin{center}
+			\huge\rmfamily\color{white}{\textbf{\ttitle}}
+		\end{center}}\end{minipage} }}
+	\end{textblock*}
+
+	\begin{textblock*}{5cm}(130mm,122.6mm)
+		\colorbox{azulUSC}{\hspace{5mm} \parbox{0.35\paperwidth}{
+			\hypersetup{hidelinks}
+			\vspace{4cm}
+			\color{white}
+			\textbf{\textsc{\tipotraballo}}
+			\\\textbf{\textsc{ Para la titulación de}}
+			\\\textbf{\textsc{\degreename}}
+			\vskip 1cm
+			\textbf{\textsc{Autor}:
+			\\ \authorname
+			\vskip 1cm
+			\textsc{Tutores}:
+			\\\supname % Nome do Titor 1
+			\\{\small \deptname}
+			\vskip 0.2cm
+			\supnameseg   % Nome do Titor 2
+			\\{\small \deptnameseg}
+			\vskip 0.2cm
+			\textsc{Convocatoria}:
+			\\ \dataConvocatoria
+			\vfill
+			\vskip 10cm
+		}}}
+	\end{textblock*}
+	\begin{textblock*}{\paperwidth}(6mm,8mm)
+		\includegraphics[width=5.5cm]{LogoTerra}
+	\end{textblock*}
+\end{titlepage}
+
+
+
+%----------------------------------------------------------------------------------------
+%	PÁXINA DE TÍTLO
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage}
+\begin{center}
+
+%\vspace*{.01\textheight}
+{\scshape\LARGE \univname\par}\vspace{1.5cm} % NOME da USC
+\textsc{\Large \tipotraballo}\\[0.5cm] % Tipo de Traballo (TFG/TFM)
+
+\HRule \\[0.4cm] % liña horizontal
+{\huge \bfseries \ttitle\par}\vspace{0.4cm} % Titulo do traballo
+\HRule \\[1.5cm] % liña horizontal
+
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushleft} \large
+\textsc{Autor:}\\
+\href{}{\authorname} %Nome do autor - elimina o que hai dentro das chaves do comando \href para eliminar a ligazón
+\end{flushleft}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushright} \large
+	\textsc{Tutores:} \\
+	\supname % Nome do Titor 1
+	\\{\small \deptname}
+	\vskip 0.2cm
+	\supnameseg   % Nome do Titor 2
+	\\{\small \deptnameseg}
+
+\end{flushright}
+\end{minipage}\\[2cm]
+
+\vfill
+
+\large \textit{Este trabajo se presenta para cumplir con los requirimentos normativos\\ esigidos para lograr el \degreename}\\[0.3cm] % Texto requirido
+\textit{en la}\\[0.3cm]
+
+\large \textit{\facname.}\\[0.4cm]
+
+%\groupname\\\deptname\\[2cm] % Grupo de investigación e departamento
+
+\vfill
+
+{\large Fecha de la Convocatoria: \dataConvocatoria}\\[4cm] % Data
+
+\begin{textblock*}{\paperwidth}(8mm,260mm)
+	\includegraphics{LogoEPS} % Logo do EPS
+\end{textblock*}
+\vfill
+\end{center}
+\end{titlepage}
+
+%----------------------------------------------------------------------------------------
+%	AUTORIZACIÓN BiBLIOTECA
+%----------------------------------------------------------------------------------------
+
+\begin{declaration}
+\addchaptertocentry{Autorización} % Engade a declaracion á táboa de contidos
+\noindent
+Yo, \textsc{\authorname}, alumno de la titulación {\degreename} de la \textit{\facname} de la \textit{\univname}, con DNI {\dniautor}, autorizo la ubicación de la seguinte copia de mí \textbf{Trabajo Fin de Grado} en la biblioteca de Intercentros para que pueda ser consultada por las personas que lo deseen.
+
+
+\vspace{5em}
+
+\noindent Firmado:\\
+\rule[0.5em]{25em}{0.5pt} % This prints a line for the signature
+\vspace{2em}
+
+\noindent Fecha:\\
+\nopagebreak
+\parbox[b]{25em}{ % Creamos una caja del mismo ancho que la línea
+    \centering \today \\ % Centramos la fecha
+    \rule[0.5em]{25em}{0.5pt} % Dibujamos la línea justo debajo
+}
+\vfill
+\end{declaration}
+
+\cleardoublepage
+
+
+%----------------------------------------------------------------------------------------
+%	PÁXINA PARA UNHA CITA QUE CHE GUSTE
+%----------------------------------------------------------------------------------------
+
+\vspace*{0.2\textheight}
+\noindent{\itshape Tenta non converterte nunha persoa de éxito, senón nunha persoa de valor.}\bigbreak
+\hfill Albert Einstein
+
+
+
+
+
+%----------------------------------------------------------------------------------------
+%	DESEÑO DA PÁXINA QUE CONTÉN O RESUMO DO TRABALLO
+%----------------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Resumo en galego
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\abstractname}{Resumo}
+\renewcommand{\byname}{por}
+\begin{abstract}[\textsc{Análise comparativa dos métodos de segmentación 2D e 3D aplicados a imaxes médicas}]
+	\addchaptertocentry{\abstractname} % Engade o resumo a táboa de contidos
+	\lipsum[1]
+
+\end{abstract}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Resumo en castelan
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\abstractname}{Resumen}
+\renewcommand{\byname}{por}
+\renewcommand{\palabrasChave}{Palabras Clave: }
+\begin{abstract}
+	\addchaptertocentry{\abstractname} % Engade o resumo a táboa de contidos
+	\lipsum[1]
+
+\end{abstract}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Resumo en inglés
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\abstractname}{Abstract}
+\renewcommand{\byname}{by}
+\renewcommand{\palabrasChave}{Keywords: }
+\begin{abstract}[\textsc{Comparative Analysis of 2D and 3D Segmentation Methods in Medical Imaging}]
+	\addchaptertocentry{\abstractname} % Engade o resumo a táboa de contidos
+	\lipsum[1]
+
+\end{abstract}
+
+
+
+%----------------------------------------------------------------------------------------
+%	AGRADECEMENTOS
+%----------------------------------------------------------------------------------------
+
+\begin{acknowledgements}
+\addchaptertocentry{\acknowledgementname} % Metemos agradecementos no índice
+\lipsum[1]
+\end{acknowledgements}
+
+%----------------------------------------------------------------------------------------
+%	LISTA DE CONTIDOS/FIGURAS/TÁBOAS
+%----------------------------------------------------------------------------------------
+\renewcommand{\contentsname}{Índice General} %para renomear en galego o indice
+\tableofcontents % inserta a táboa principal de contidos (índice xeral)
+
+%\renewcommand{\listfigurename}{Índice de Figuras} %para renomear en galego o indice
+\listoffigures % inserta o índice de figuras
+
+
+%Cambiamos os nomes ao galego
+
+\renewcommand{\listtablename}{Índice de Tablas} %para renomear en galego o indice
+\listoftables % inserta o índice de táboas
+
+%----------------------------------------------------------------------------------------
+%	ABREVIACIÓNS
+%----------------------------------------------------------------------------------------
+
+\begin{abbreviations}{ll} % Inclúe unha lista de abreviacion que empregues no traballo (unha táboa de dúas columnas)
+
+
+\end{abbreviations}
+
+%----------------------------------------------------------------------------------------
+%	CONSTANTES/OUTRAS DEFINICIÓNS
+%----------------------------------------------------------------------------------------
+
+\begin{constants}{lr@{${}={}$}l} % Lista de constantes nunha táboa de 3 columnas
+
+% O comando \SI{}{} está no paquete siunitx do sistema intenacioanl de unidades, Mira a documentación para empregalo correctamente http://osl.ugr.es/CTAN/macros/latex/contrib/siunitx/siunitx.pdf
+%Este paquete da a ortotipografía matematica para os símbolos matemáticos e as unidades correspondetes do SI. Empregao!!
+
+
+\end{constants}
+
+%----------------------------------------------------------------------------------------
+%	SIMBOLOS
+%----------------------------------------------------------------------------------------
+
+\begin{symbols}{lll} % Lista de símbolos nunha táboa de 3 columnas
+
+
+
+\end{symbols}
+
+%----------------------------------------------------------------------------------------
+%	DEDICATORIA
+%----------------------------------------------------------------------------------------
+
+\dedicatory{Adicado a miña familia \ldots}
+
+%----------------------------------------------------------------------------------------
+%	CONTIDO DO TRABALLO - CAPÍTULOS
+%----------------------------------------------------------------------------------------
+
+\mainmatter % Empezamos a numeración das páxinas con números normais (1,2,3...)
+
+
+\pagestyle{thesis} % Retornamos ao formato de tese
+
+% Incluímos os capítulos do traballo como ficheiros separados e situados no cartafol Capitulos
+% Descomenta as liñas a midida que avances na redación dos capítulos
+\include{Capitulos/Capitulo1}
+\include{Capitulos/Capitulo2}
+%\include{Capitulos/Capitulo3}
+%\include{Capitulos/Capitulo4}
+%\include{Capitulos/Capitulo5}
+
+
+%----------------------------------------------------------------------------------------
+%	CONTIDO DO TRABALLO - APÉNDICES
+%----------------------------------------------------------------------------------------
+
+\appendix % Comando para decirlle a LaTeX que os seguintes capítulos son Apéndices
+
+% Incluímos os apéndices do traballo como ficheiros separados e situados no cartafol Apendices
+% Descomenta as liñas a midida que avances na redación dos Apendices
+
+\include{Apendices/ApendiceA}
+%\include{Apendices/ApendiceA}
+%\include{Apendices/ApendiceA}
+
+%Para incluir Anejos en formato pdf (saída dun programa, etc) ao teu documento os podes metelo dentro do ficheiro dun apéndice empregando o seguinte comando (dentro do ficheiro .tex do apéndice)
+%Nota: para incluir documento pdf emprega este comando:
+%\includepdf[pages=inicial-final]{nome_do_documento}
+
+
+
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAFÍA
+%----------------------------------------------------------------------------------------
+
+\printbibliography[heading=bibintoc]
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
